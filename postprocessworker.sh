@@ -111,7 +111,7 @@ for model_name in `echo $space_sep_models` ; do
             fi
 
             echo "Running StartPostprocessing.m on $out_pkg"
-            /usr/bin/time -p StartPostprocessing.m "$out_pkg"
+            StartPostprocessing.m "$out_pkg"
             ecode=$?
             if [ $ecode != 0 ] ; then
                 fatal_error "$out_dir" "ERROR non-zero exit code ($ecode) from running StartPostprocessing.m" 7
