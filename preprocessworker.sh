@@ -107,7 +107,7 @@ for model_name in `echo $space_sep_models` ; do
             echo "Preprocessing $package_name in model $model_name"
             augoutfile="$out_dir/augimages/preproc.${model_name}.${package_name}.log"
       
-            # /usr/bin/time -p PreprocessPackage.m "$img_dir" "$out_dir/augimages" $CUR_PKG $CUR_Z $model_name $aug_speed > "$augoutfile" 2>&1 
+            PreprocessPackage.m "$img_dir" "$out_dir/augimages" $CUR_PKG $CUR_Z $model_name $aug_speed > "$augoutfile" 2>&1 
             ecode=$?
             if [ $ecode != 0 ] ; then
                 fatal_error "$out_dir" "ERROR, a non-zero exit code ($ecode) received from PreprocessPackage.m $CUR_PKG $CUR_Z $model_name $aug_speed" 8
