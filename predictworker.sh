@@ -121,7 +121,7 @@ for model_name in `echo $space_sep_models` ; do
                 exit 1
             fi
             echo "Running prediction on $model_name $package_name"
-            /usr/bin/time -p caffepredict.sh --gpu $gpu "$trained_model_dir/$model_name/trainedmodel" "$Z" "$out_pkg"
+            caffepredict.sh --gpu $gpu "$trained_model_dir/$model_name/trainedmodel" "$Z" "$out_pkg"
             ecode=$?
             if [ $ecode != 0 ] ; then
                 fatal_error "$out_dir" "ERROR, a non-zero exit code ($ecode) was received from: caffepredict.sh" 4
