@@ -145,7 +145,7 @@ done
 # without this jobs would fail on GPU with out of memory error
 #
 
-cat $parallel_job_file | parallel --no-notice --delay 2 -N 6 -j $gpucount 'GLOG_logtostderr="{1}" /usr/bin/time -p predict_seg_new.bin --model={2}/deploy.prototxt --weights={3} --data={4} --predict={5}/test.h5 --shift_axis=2 --shift_stride=1 --gpu={6}' >> "$out_log" 2>&1
+cat $parallel_job_file | parallel --no-notice --delay 2 -N 6 -j $gpucount 'GLOG_logtostderr="{1}" predict_seg_new.bin --model={2}/deploy.prototxt --weights={3} --data={4} --predict={5}/test.h5 --shift_axis=2 --shift_stride=1 --gpu={6}' >> "$out_log" 2>&1
   ecode=$?
   if [ $ecode != 0 ] ; then
     fatal_error "$out_dir" "ERROR non-zero exit code ($ecode) from running predict_seg_new.bin" 6
