@@ -122,7 +122,7 @@ for model_name in `echo $space_sep_models` ; do
             let cntr+=1
         done
     done
-    /usr/bin/time -p Merge_LargeData.m "$out_dir/$model_name"
+    Merge_LargeData.m "$out_dir/$model_name"
     ecode=$?
     if [ $ecode != 0 ] ; then
         fatal_error "$out_dir" "ERROR non-zero exit code ($ecode) from running Merge_LargeData.m" 8
